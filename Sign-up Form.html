@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Form</title>
+    <link rel="stylesheet" href="regstyle.css">
+
+</head>
+<body>
+
+<div class="bg-image"></div>
+
+<h1 style="font-weight:bold; color: white;">CREATE ACCOUNT</h1>
+
+<div class="container">
+
+<p style="text-align:center; color: white;">Select Profile Picture</p>
+
+<div class="profile-pic" id="profilePic">
+
+<img id="profileImage" src="" alt="" style="display: none;">
+
+<div class="add-icon" onclick="document.getElementById('uploadInput').click()">+</div>
+</div>
+
+<input type="file" id="uploadInput" style="display: none;" accept="image/*">
+
+<div class="delete-btn" onclick="removeImage()" style="color: white;">🗑 Delete Picture</div>
+
+
+<p style="text-align: center; color: white;">Default Color Select</p>
+
+<div class="color-options">
+        <div class="color-circle" style="background: #ffcccc;" onclick="changeBackground('#ffcccc')"></div>
+        <div class="color-circle" style="background: #ffebcc;" onclick="changeBackground('#ffebcc')"></div>
+        <div class="color-circle" style="background: #ffffcc;" onclick="changeBackground('#ffffcc')"></div>
+        <div class="color-circle" style="background: #ccffcc;" onclick="changeBackground('#ccffcc')"></div>
+        <div class="color-circle" style="background: #ccffff;" onclick="changeBackground('#ccffff')"></div>
+        <div class="color-circle" style="background: #cce6ff;" onclick="changeBackground('#cce6ff')"></div>
+        <div class="color-circle" style="background: #d9ccff;" onclick="changeBackground('#d9ccff')"></div>
+        </div>
+
+<button type="submit" class="save-button">Save</button>
+
+<br>
+
+<input type="text" name="fullname" placeholder="Full Name" required  autocomplete="given-name"/><br>
+
+<input type="email" name="email" placeholder="Email" required id="eml"  autocomplete="on"/><br>
+
+<input type="text" name="username" placeholder="Username" required id="urnm"  autocomplete="given-name"/><br>
+
+<input type="password" name="password" placeholder="Password" required id="pwd"><br>
+
+<input type="password" name="confirm_password" placeholder="Confirm Password" required><br>
+
+<button type="submit" onclick="ABC()">Sign up</button> 
+
+<div id="error-message" class="error"></div> 
+
+
+    
+<p style="text-align: center; font-size: 15px; color: white;">Already have an account? <a href="index.html">Login</a></p>
+</div>
+
+
+<script> 
+
+document.getElementById('uploadInput').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const profileImage = document.getElementById('profileImage');
+            profileImage.src = e.target.result;
+            profileImage.style.display = "block";
+            document.querySelector('.profile-pic').classList.add("has-image");
+            document.querySelector('.profile-pic').style.background = "none";             localStorage.setItem("profilePicture", e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+
+function removeImage() {
+    document.getElementById('profileImage').src = "";
+    document.getElementById('profileImage').style.display = "none";
+    document.querySelector('.profile-pic').style.background = "#ccc";
+    document.querySelector('.profile-pic').classList.remove("has-image");
+    localStorage.removeItem("profilePicture");
+}
+
+
+function changeBackground(color) {
+    document.querySelector('.profile-pic').style.background = color;
+    localStorage.setItem("profileBackground", color);
+}
+
+function saveProfileSettings() {
+    alert("Profile settings saved successfully!");
+}
+
+
+function ABC() {
+    let Username = document.getElementById("urnm").value;
+    let Password = document.getElementById("pwd").value;
+
+    localStorage.setItem("Username", Username);
+    localStorage.setItem("Password", Password);
+
+    alert("Sign up successful!");
+    window.location.href = "Homepage.html";
+}
+
+
+window.onload = function() {
+    const savedProfilePicture = localStorage.getItem("profilePicture");
+    if (savedProfilePicture) {
+        document.getElementById('profileImage').src = savedProfilePicture;
+        document.getElementById('profileImage').style.display = "block";
+        document.querySelector('.profile-pic').style.background = "none";
+    }
+
+    const savedBackgroundColor = localStorage.getItem("profileBackground");
+    if (savedBackgroundColor) {
+        document.querySelector('.profile-pic').style.background = savedBackgroundColor;
+    }
+};
+
+</script>
+
+
+
+</body>
+</html>
