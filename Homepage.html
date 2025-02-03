@@ -16,19 +16,24 @@ body, html {
   box-sizing: border-box;
 }
 
-.signup-link {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: #007BFF; 
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none; 
-  font-size: 16px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
-}
+
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .logout-btn:hover {
+            background-color: darkred;
+        }
 
 .bg-container {
     position: relative; 
@@ -211,8 +216,7 @@ body, html {
 </head>
 <body>
 
-<div class="signup-link"><a href="Sign-up Form.html">Sign Up</a>
-</div>
+<button class="logout-btn" onclick="logout()">Log Out</button>
 
 <div class="bg-image"></div>
 <div class="bg-text">
@@ -270,6 +274,9 @@ body, html {
 
 <br>
 <br>
+  <p style="text-align: center;"><a href="Collections.html">See all my collection</a>
+</p>
+
 <br>
 <br>
 
@@ -308,5 +315,12 @@ body, html {
 
 <br>
 <br>
+  
+    <script>
+       function logout() {
+            alert("You have been logged out!");
+            window.location.href = "index.html"; 
+        }
+    </script>
 </body>
 </html>
