@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Collections</title>
+<style>
+#myImg {
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0); 
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+
+.modal-content, #caption {  
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {transform: scale(0.1)} 
+  to {transform: scale(1)}
+}
+
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 20px;
+  padding: 5px;
+  justify-content: center;
+  max-width: 900px; 
+  margin: auto;
+}
+
+.image-grid img {
+  width: 450px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;  
+  transform: translateY(50px);
+  animation: fadeUp 1s ease-out forwards;
+}
+
+.image-grid img:nth-child(1) { animation-delay: 0.2s; }
+.image-grid img:nth-child(2) { animation-delay: 0.4s; }
+.image-grid img:nth-child(3) { animation-delay: 0.6s; }
+.image-grid img:nth-child(4) { animation-delay: 0.8s; }
+.image-grid img:nth-child(5) { animation-delay: 0.10s; }
+.image-grid img:nth-child(6) { animation-delay: 0.12s; }
+.image-grid img:nth-child(7) { animation-delay: 0.14s; }
+.image-grid img:nth-child(8) { animation-delay: 0.16s; }
+.image-grid img:nth-child(9) { animation-delay: 0.18s; }
+.image-grid img:nth-child(10) { animation-delay: 0.20s; }
+.image-grid img:nth-child(11) { animation-delay: 0.22s; }
+.image-grid img:nth-child(12) { animation-delay: 0.24s; }
+.image-grid img:nth-child(13) { animation-delay: 0.26s; }
+.image-grid img:nth-child(14) { animation-delay: 0.28s; }
+.image-grid img:nth-child(15) { animation-delay: 0.30s; }
+.image-grid img:nth-child(16) { animation-delay: 0.32s; }
+.image-grid img:nth-child(17) { animation-delay: 0.34s; }
+.image-grid img:nth-child(18) { animation-delay: 0.36s; }
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<h1 style="font--weight: bold; text-align: center;">My collections</h1>
+
+<div class="image-grid">
+<img id="myImg" src="image1(1).jpg" alt="image 1" width="350" height="300">
+<img id="myImg" src="image2(3).jpg" alt="image 2" width="350" height="300">
+<img id="myImg" src="image3.jpg" alt="image 3" width="300" height="200">
+<img id="myImg" src="image4.jpg" alt="image 4" width="300" height="200">
+<img id="myImg" src="image5(1).jpg" alt="image 5" width="300" height="200">
+<img id="myImg" src="image6.jpeg" alt="image 6" width="300" height="200">
+<img id="myImg" src="image7.jpeg" alt="image 7" width="300" height="200">
+<img id="myImg" src="image8.jpeg" alt="image 8" width="300" height="200">
+<img id="myImg" src="image9.jpeg" alt="image 9" width="300" height="200">
+<img id="myImg" src="image10.jpeg" alt="image 10" width="300" height="200">
+<img id="myImg" src="image11.jpeg" alt="image 11" width="300" height="200">
+<img id="myImg" src="image12.jpeg" alt="image 12" width="300" height="200">
+<img id="myImg" src="image13.jpeg" alt="image 13" width="300" height="200">
+<img id="myImg" src="image14.jpeg" alt="image 14" width="300" height="200">
+<img id="myImg" src="image15.jpeg" alt="image 15" width="300" height="200">
+<img id="myImg" src="image16.jpeg" alt="image 16" width="300" height="200">
+<img id="myImg" src="image17.jpg" alt="image 17" width="300" height="200">
+<img id="myImg" src="image18.jpeg" alt="image 18" width="300" height="200">
+
+
+
+<div id="myModal" class="modal">
+  <span class="close">&times;</span>
+  <img class="modal-content" id="img01">
+  <div id="caption"></div>
+</div>
+
+<script>
+
+var modal = document.getElementById('myModal');
+
+
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+
+var span = document.getElementsByClassName("close")[0];
+
+
+span.onclick = function() { 
+  modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
