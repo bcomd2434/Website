@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,6 @@
         * {
             box-sizing: border-box;
         }
-
     
         .logout-btn {
             position: absolute;
@@ -34,7 +34,6 @@
             background-color: darkred;
         }
 
-      
         .bg-image {
             position: fixed;
             top: 0;
@@ -58,15 +57,13 @@
             left: 50%;
             width: 80%;
             max-width: 800px;
-            height: 30%;
+            height: auto; 
             transform: translate(-50%, -50%);
             z-index: 2;
             padding: 20px;
             text-align: center;
-         
-          
         }
-      
+        
         .image-grid {
             display: grid;
             grid-template-columns: repeat(3, auto);
@@ -77,18 +74,16 @@
             margin: auto;
         }
 
-     
         .image-grid img {
             width: 450px;
             height: 450px;
             object-fit: cover;
             border-radius: 10px;
-            cursor: pointer;
             transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
             animation: fadeIn 1s ease-in-out;
-        }
 
-      
+        }
+    
         .image-grid img:hover {
             opacity: 0.8;
             transform: scale(1.05);
@@ -106,14 +101,13 @@
             }
         }
 
-        @media screen and (max-width: 1200px) {
-            .image-grid {
-                grid-template-columns: repeat(3, 1fr); 
+        
+        @media screen and (max-width: 600px) {
+            .bg-text h1 {
+                font-size: 30px;
             }
-
-            .image-grid img {
-                width: 300px;
-                height: 300px;
+            .bg-text p {
+                font-size: 18px;
             }
         }
 
@@ -129,7 +123,7 @@
             }
         }
 
-       
+
         .about-container {
             display: flex;
             align-items: center;
@@ -137,7 +131,7 @@
             flex-wrap: wrap;
             text-align: left;
             margin: 40px 20px;
-        }
+}
 
         .about-text {
             margin-left: 20px;
@@ -225,96 +219,88 @@
             height: 30px;
         }
 
+        }
     </style>
 </head>
 <body>
-
     <button class="logout-btn" onclick="logout()">Log Out</button>
-
     <div class="bg-image"></div>
     <div class="bg-text">
-
-<marquee behavior="slide" direction="up">
-<center>
-        <h1 style="font-size:50px">I'M A PHOTOGRAPHER</h1>
-        <p>These are my photo collection</p>
-</center>
-</marquee>
+        <marquee behavior="slide" direction="up">
+            <center>
+                <h1 style="font-size:50px">I'M A PHOTOGRAPHER</h1>
+                <p>These are my photo collection</p>
+            </center>
+        </marquee>
     </div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    <br>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
     <div class="image-grid">
         <img src="image1.jpg" alt="Image 1">
         <img src="image2.jpg" alt="Image 2">
         <img src="image5.JPG" alt="Image 3">
     </div>
-
 <br>
 <br>
-
     <p style="text-align: center;"><a href="Collections.html">See all my collection</a></p>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 
     <div class="about-container">
         <img src="WhatsApp1.jpeg" class="small-img" alt="WPImg">
         <div class="about-text">
-            <h2 style="font-size:190%;"> <center><b>MUHAMMED BASI KP</b></center> </h2>
-
-<br>
-
-<p style="font-size:130%;">I am <b>Muhammed Basim Kp</b>, an 18-year-old student from Kerala, India. Currently, I am pursuing a Bachelor of Commerce degree while concurrently enrolled in the Association of Chartered Certified Accountants (<i>ACCA</i>) program. My studies take place at Rajagiri College of Social Sciences in Kalamassery. In my free time, I enjoy engaging in photography, video games, reading, and badminton.</p>
+            <h2 style="font-size:190%;"><center><b>MUHAMMED BASIM KP</center></b></h2>
+          <br>
+            <p style="font-size:130%;">I am <b>Muhammed Basim Kp</b>, an 18-year-old student from Kerala, India. Currently, I am pursuing a Bachelor of Commerce degree while concurrently enrolled in the Association of Chartered Certified Accountants (<i>ACCA</i>) program. My studies take place at Rajagiri College of Social Sciences in Kalamassery. In my free time, I enjoy engaging in photography, video games, reading, and badminton.</p>
                
 <p style="font-size:130%;">I have gained foundational knowledge in HTML and C++ during my higher secondary education. Recently, I had the opportunity to expand my skills in HTML and learn a new subject, CSS. My college offered a six-day course for students, and I was selected to participate in the "Introduction to Web Design and Development" program. Through this course, I learned how to develop my own website with the assistance of AI tools.</p>
 
 <p style="font-size:130%;">The primary objective of my website is to showcase my photography, featuring images I have captured in Turkey, Mysore, and my local area. I hope viewers find my work engaging and inspiring. If you have any suggestions or feedback, please feel free to reach out to me on Instagram or via email.</p>
 
-Thank you!
-                
-                
-            </p>
+<P>Thank you!</p>
+          
         </div>  
     </div>
 
-
-<br>
 <br>
 <br>
 <br>
@@ -322,7 +308,7 @@ Thank you!
 <br>
 <br>
 
-
+  
     <footer class="footer">
         <div class="footer-container">
             <h3>MUHAMMED BASIM KP</h3>
@@ -341,6 +327,5 @@ Thank you!
             window.location.href = "index.html"; 
         }
     </script>
-
 </body>
 </html>
